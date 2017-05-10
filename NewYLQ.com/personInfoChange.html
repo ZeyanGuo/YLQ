@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Change Info</title>
+	</head>
+	<style>
+		.btn {
+			padding: .3em .8em;
+			border: .05em solid rgba(0, 0, 0, .1);
+			background: #58a;
+			border-radius: .2em;
+			color: white;
+			font-size: 125%;
+			line-height: 1.5em;
+			outline: none;
+		}
+		body{
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+			background: #8795aa;
+			color: black;
+		}
+		.content-main-nav{
+			background: #30486d;
+			height: 50px;
+			border:1px solid #396b82;
+		}
+		.content-main-nav-info{
+			width: 1190px;
+			margin: 0 auto;
+			line-height: 50px;
+			font-size: .5em;
+		}
+		.content-main-nav-info>a{
+			font-family: cursive;
+			font-weight: bold;
+			letter-spacing: .2em;
+			font-size: 2em;
+			color: white;
+			text-decoration: none;
+		}
+		.content-main-nav-info>a:hover{
+			color: cornflowerblue;
+		}
+		.content-main-nav-btn{
+			display: inline-block;
+			float: right;
+			cursor: pointer;
+		}
+		.content-main-nav-btn>span{
+			color: white;
+		}
+		.content-main-nav-btn>span:nth-last-of-type(odd):hover{
+			color: cornflowerblue;
+		}
+		.content-main-change-fromset{
+			width: 1190px;
+			height: 1100px;
+			margin: 0 auto;
+			margin-top: 20px;
+			background-color:#f8f8f8 ;
+		}
+		.content-main-change-left-side{
+			width: 150px;
+			height: 100%;
+			background: #d4e5ff;
+			float: left;
+		}
+		.content-main-change-left-personinfo{
+			height: 150px;
+			width: 145px;
+			float: right;
+		}
+		.content-main-change-left-moreinfo{
+			height: 150px;
+			width: 145px;
+			float: right;
+		}
+		.content-main-change-left-security{
+			height: 150px;
+			width: 145px;
+			float: right;
+		}
+		.content-main-change-left-identity{
+			height: 150px;
+			width: 145px;
+			float: right;
+		}
+		.content-main-change-left-mark{
+			height: 150px;
+			width: 5px;
+		}
+		.left-img-stage{
+			width: 45px;
+			margin: 0 auto;
+			margin-top: 35px;
+		}
+		.left-text-stage{
+			width: 80px;
+			margin: 0 auto;
+		}
+		.img-icon{
+			width: 45px;
+			height: 45px;
+		}
+		.left-text{
+			color: #1296db;
+		}
+		.mark{
+			height: 150px;
+			width: 100%;
+		}
+		.left-item{
+			cursor: pointer;
+		}
+		.left-item:hover>.content-main-change-left-mark{
+			background: lightskyblue;
+		}
+		.content-main-change-right-side-info{
+			float: right;
+			overflow: hidden;
+			width: 1030px;
+			height: 100%;
+		}
+		.person-image{
+			float: right;
+			width: 300px;
+			height: 300px;
+			text-align: center;
+		}
+		.img{
+			width: 200px;
+			height: 200px;
+			overflow: hidden;
+			border-radius:100px ;
+			margin: 0 auto;
+			margin-top: 100px;
+			background: #25A98F;
+		}
+		.img>img{
+			width: 200px;
+			height: 200px;
+		}
+		.btn-green{
+			margin-top:20px ;
+			font-size: 100%;
+			background-color: hsl(167,45%,55%);
+		}
+		.title{
+			height: 80px;
+		}
+		.title-name{
+			font-size: 1.4em;
+			padding: 20px;
+			line-height: 4em;
+		}
+		.title-sub{
+			display: inline;
+			vertical-align: 10%;
+			font-size: .8em;
+		}
+		.form-input{
+			padding: 20px;
+			font-size: 1em;
+		}
+		.gray-text{
+			color: gray;
+		}
+		.form-input input{
+			padding-left:10px ;
+			margin-top: 10px;
+			font-size:.8em ;
+			height: 35px;
+			width: 340px;
+		}
+		.btn-set{
+			padding: 20px;
+		}
+		.btn-blue{
+			width: 180px;
+		}
+		.show{
+			display: block;
+		}
+		.hidden{
+			display: none;
+		}
+		.form-radio{
+			padding: 20px;
+		}
+		.form-radio{
+			margin
+		}
+		.form-radio>span{
+			font-size:.9em ;
+			margin-right:50px ;
+		}
+		.form-radio>input{
+			width: 25px;
+			height: 25px;
+			outline: none;
+			vertical-align: -40%;
+		}
+		.form-input-text{
+			width: 150px;
+			display: inline-block;
+		}
+		hr{
+			border: 1px #e4e4e4 solid;
+		}
+		.form-input-textarea{
+			width: 800px;
+			height: 150px;
+			font-size: 1em;
+			vertical-align: top;
+		}
+		.btn-check{
+			font-size: 1em;
+			margin-left: 100px;
+		}
+		.form-input-blank{
+			width: 150px;
+			display: inline-block;
+		}
+		.footer{
+			margin-top:50px ;
+			border-top:2px solid #396b82 ;
+			background: #30486d;
+			height: 150px;
+		}
+		.form-file{
+			position: relative;
+			padding: 0;
+			margin: 0;
+			display: inline-block;
+			vertical-align: top;
+			width: 300px;
+			height: 200px;
+			border: 1px dashed gray;
+			background: white;
+		}
+		input[name='IdCard']{
+			opacity: 0;
+			width: 300px;
+			height: 200px;
+			
+		}
+		.img-up{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 300px;
+			height: 200px;
+			background: url(img/backgroundImg.jpg);
+			background-size:cover ;
+		}
+		.mark{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 300px;
+			height: 200px;
+			background: hsla(0,0%,0%,.3);
+		}
+		.form-file-add{
+			position: absolute;
+			left: 118px;
+			top: 68px;
+			height: 64px;
+			width: 64px;
+			background:url(img/personInfoChange/addition.png);
+		}
+		.form-file-close{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 300px;
+			height: 40px;
+			background: hsla(0,0%,0%,.3);
+		}
+		.form-file-close-icon{
+			position: absolute;
+			top: 4px;
+			right: 10px;
+			width: 32px;
+			height: 32px;
+			background: url(img/personInfoChange/delete.png);
+			background-size:cover ;
+		}
+		.form-tip{
+			margin-left: 30px;
+			font-size: .5em;
+			color: gray;
+			width: auto;
+			height: 20px;
+		}
+		.form-input-decoration{
+			display: inline;
+			position: relative;
+		}
+		.form-input-icon{
+			position: absolute;
+			left: 10px;
+			top: -3px;
+			width: 32px;
+			height: 32px;
+			overflow: hidden;
+		}
+		.form-input-decoration>input{
+			padding-left:52px;
+			width: 298px;
+		}
+	</style>
+	<body>
+		<div class="content-main-nav">
+			<div class="content-main-nav-info">
+				<a href="">FUNTAKE</a>
+				<div class="content-main-nav-btn">
+					<span name='personName'>您好,我爱吃烤鸡翅</span>
+					<span>|</span>
+					<span>[退出]</span>
+				</div>
+			</div>
+		</div>
+		<div class="content-main-change-fromset">
+			<div class="content-main-change-right-side-info">
+				<div class="personinfo show">
+					<div class="person-image">
+						<div class="img">
+							<img src="img/logo.png" />
+						</div>
+						<button class="btn btn-green">修改头像</button>
+					</div>
+					<div class="title">
+						<span class="title-name">基本资料</span>
+						<div class="title-sub">
+							<span class="gray-text">- 基本资料将显示在个人名片中，可让更多的朋友了解和认识你！</span>
+						</div>
+					</div>
+					<form>
+						<div class="form-input">
+							<span>用户名 : <span class="gray-text">用户名是你在友乐取中的昵称也是重要标志</span></span>
+							<input type="text" placeholder="我爱吃烤鸡翅" />
+						</div>
+						<div >
+							<div class="form-input">
+								<span>个性签名 : <span class="gray-text">你的感悟活在这一句话介绍，建议少于16字</span></span>
+								<input type="text" />
+							</div>
+	
+							<div class="form-input">
+								<span>社交账号 : <span class="gray-text">大家可以通过更多的渠道关注你</span></span>
+								<br />
+								<div class="form-input-decoration">
+									<input type="text" />
+									<span class="form-input-icon">
+										<img src="img/personInfoChange/iconfont_blog_fill.png" />
+									</span>
+								</div>
+								<div class="form-input-decoration">
+									<input type="text" />
+									<span class="form-input-icon">
+										<img src="img/personInfoChange/iconfont_blog_fill.png" />
+									</span>
+								</div>
+								<br />
+								<div class="form-input-decoration">
+									<input type="text" />
+									<span class="form-input-icon">
+										<img src="img/personInfoChange/QQ.png" />
+									</span>
+								</div>
+								<div class="form-input-decoration">
+									<input type="text" />
+									<span class="form-input-icon">
+										<img src="img/personInfoChange/wechat.png" />
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="btn-set">
+							<input class="btn btn-blue" type="submit" value="确定" />
+							<input class="btn btn-blue" type="reset" value="取消" />
+						</div>
+					</form>
+				</div>
+				<div class="moreinfo hidden">
+					<div class="title">
+						<span class="title-name">扩展资料</span>
+						<div class="title-sub">
+							<span class="gray-text">- 填写其他信息，让其他人更好了解你</span>
+						</div>
+					</div>
+						
+					<form>
+						<div class="form-radio">
+							<div class="form-input-text">
+								<span>性别:</span>
+							</div>
+							
+							<input type="radio" name="gender" /><span>男</span>
+							<input type="radio" name="gender" /><span>女</span>
+						</div>
+						<hr />
+							<div class="form-input">
+								<div class="form-input-text">
+									<span>生日:</span>
+								</div>
+								<input type="date"  />
+							</div>
+						<hr />
+							<div class="form-input">
+								<div class="form-input-text">
+									<span>所在城市:</span>
+								</div>
+								<input type="text"  />
+							</div>
+						<hr />
+							<div class="form-input">
+								<div class="form-input-text">
+									<span>所在学校:</span>
+								</div>
+								<input type="text"  />
+							</div>
+						<hr />
+							<div class="form-input">
+								<div class="form-input-text">
+									<span>所属专业:</span>
+								</div>
+								<input type="text"  />
+							</div>
+						<hr />
+						<div class="form-input">
+								<div class="form-input-text">
+									<span>个人简介:</span>
+								</div>
+								<textarea class="form-input-textarea"></textarea>
+							</div>
+						<hr />
+						<div class="btn-set">
+							<input class="btn btn-blue" type="submit" value="确定" />
+							<input class="btn btn-blue" type="reset" value="取消" />
+						</div>
+					</form>
+
+				</div>
+				<div class="security hidden">
+					<div class="title">
+						<span class="title-name">安全信息</span>
+						<div class="title-sub">
+							<span class="gray-text">- 请尽早完善安全信息，更好地保护您的数据安全</span>
+						</div>
+					</div>
+					
+						<div class="form-input">
+							<div class="form-input-text">
+								<span>用户名:</span>
+							</div>
+							<input type="text" placeholder="我爱吃烤鸡翅"  />
+							<button class="btn btn-blue btn-check">确认</button>
+						</div>
+						<hr />
+						<div class="form-input">
+							<div class="form-input-text">
+								<span>登录密码:</span>
+							</div>
+							<input type="text" placeholder="新密码"  />
+							<br />
+							<div class="form-input-blank"></div>
+							<input type="text" placeholder="重复密码"  />
+							<button class="btn btn-blue btn-check">确认</button>
+						</div>
+						<hr />
+						<div class="form-input">
+							<div class="form-input-text">
+								<span>验证邮箱:</span>
+							</div>
+							<input type="text" placeholder="邮箱地址" />
+							<button class="btn btn-blue btn-check">发送验证码</button>
+							<br />
+							<div class="form-input-blank"></div>
+							<input type="text" placeholder="验证码" />
+							<button class="btn btn-blue btn-check">确认</button>
+						</div>
+						<hr />
+						<div class="form-input">
+							<div class="form-input-text">
+								<span>验证手机:</span>
+							</div>
+							<input type="text" placeholder="手机号码" />
+							<button class="btn btn-blue btn-check">发送验证码</button>
+							<br />
+							<div class="form-input-blank"></div>
+							<input type="text" placeholder="验证码" />
+							<button class="btn btn-blue btn-check">确认</button>
+						</div>
+						<hr />
+
+
+				</div>
+				<div class="identity hidden">
+					<div class="title">
+						<span class="title-name">身份认证信息</span>
+						<div class="title-sub">
+							<span class="gray-text">- 以下均为必填项</span>
+						</div>
+					</div>
+					<div class="form-input">
+							<div class="form-input-text">
+								<span>审核状态:</span>
+							</div>
+							<span>未提交审核</span>
+					</div>
+					<hr />
+					<form>
+					<div class="form-input">
+							<div class="form-input-text">
+								<span>姓名:</span>
+							</div>
+							<input type="text" placeholder=""  />
+							<span class="form-tip">
+								填写真实姓名用于审核
+							</span>
+					</div>
+					<hr />
+					<div class="form-input">
+							<div class="form-input-text">
+								<span>身份证号码:</span>
+							</div>
+							<input type="text" placeholder=""  />
+							<span class="form-tip">
+								请填写15位一代身份证号或18位二代身份证号
+							</span>
+					</div>
+					<hr />
+					<div class="form-input">
+							<div class="form-input-text">
+								<span>身份证正面照片:</span>
+							</div>
+							<div class="form-file">
+								<input type="file" name='IdCard' multiple="multiple" accept="image/gif,image/jpeg,image/png"/>
+								<span class="mark" ><span class="form-file-add"></span></span>
+								<span class="img-up" style="display: none;" >
+									<span class="form-file-close">
+										<span class="form-file-close-icon"></span>
+									</span>
+								</span>
+								
+							</div>
+							<span class="form-tip">
+								所有上传信息均会被妥善保管,不会用于其他商业用途或传输给其他第三方
+							</span>
+					</div>
+					<hr />
+					<div class="form-input">
+							<div class="form-input-text">
+								<span>身份证背面照片:</span>
+							</div>
+							<div class="form-file">
+								<input type="file" name='IdCard' multiple="multiple" accept="image/gif,image/jpeg,image/png"/>
+								<span class="mark" ><span class="form-file-add"></span></span>
+								<span class="img-up" style="display: none;" >
+									<span class="form-file-close">
+										<span class="form-file-close-icon"></span>
+									</span>
+								</span>
+								
+							</div>
+							<span class="form-tip">
+								所有上传信息均会被妥善保管,不会用于其他商业用途或传输给其他第三方
+							</span>
+					</div>
+					<hr />
+					<div class="btn-set">
+							<input class="btn btn-blue" type="submit" value="确定" />
+							<input class="btn btn-blue" type="reset" value="取消" />
+					</div>
+					</form>
+				</div>
+			</div>
+			<div class="content-main-change-left-side">
+				<div class="left-item">
+					<div class="content-main-change-left-personinfo"  style="background:#F8F8F8 ;">
+						<div class="left-img-stage">
+							<img class="img-icon" src="img/personInfoChange/form.png" />
+						</div>
+						<div class="left-text-stage">
+							<span class="left-text">基本资料</span>
+						</div>
+					</div>
+					<div class="content-main-change-left-mark" style="background: dodgerblue;">
+					</div>
+				</div>
+				<div class="left-item">
+					<div class="content-main-change-left-moreinfo">
+						<div class="left-img-stage">
+							<img class="img-icon" src="img/personInfoChange/folder.png" />
+						</div>
+						<div class="left-text-stage">
+							<span class="left-text">扩展资料</span>
+						</div>
+						
+					</div>
+					<div class="content-main-change-left-mark">
+					</div>
+				</div>
+				<div class="left-item">
+					<div class="content-main-change-left-security">
+						<div class="left-img-stage">
+							<img class="img-icon" src="img/personInfoChange/password.png" />
+						</div>
+						<div class="left-text-stage">
+							<span class="left-text">账户安全</span>
+						</div>
+						
+					</div>
+					<div class="content-main-change-left-mark">
+					</div>
+				</div>
+				<div class="left-item">
+					<div class="content-main-change-left-identity">
+						<div class="left-img-stage">
+							<img class="img-icon" src="img/personInfoChange/bussiness-card.png" />
+						</div>
+						<div class="left-text-stage">
+							<span class="left-text">身份认证</span>
+						</div>
+						
+					</div>
+					<div class="content-main-change-left-mark">
+						
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="footer">
+				
+		</div>
+		<script>
+			Array.prototype._push=function(obj){
+				Array.prototype.push.call(this,obj);
+				return this;
+			}
+			function changeSubPage(){
+				var personPageLeft = document.querySelector('.content-main-change-left-personinfo'),
+					moreInfoLeft = document.querySelector('.content-main-change-left-moreinfo'),
+					securityLeft = document.querySelector('.content-main-change-left-security'),
+					identityLeft = document.querySelector('.content-main-change-left-identity'),
+					personPage = document.querySelector('.personinfo'),
+					moreInfo = document.querySelector('.moreinfo'),
+					security = document.querySelector('.security'),
+					identity = document.querySelector('.identity'),
+					pageRight = document.querySelector('.content-main-change-left-side'),
+					leftButtonArray=[],rightPageArray=[],objLeft,objRight;
+				//存入对对映界面信息到数组,方便后续操作
+				leftButtonArray._push(personPageLeft)._push(moreInfoLeft)._push(securityLeft)._push(identityLeft);
+				rightPageArray._push(personPage)._push(moreInfo)._push(security)._push(identity);
+
+				
+				//注册右半界面事件委托
+				pageRight.addEventListener('click',dealChangePage);
+				
+				//界面按钮点击处理函数
+				function dealChangePage(e){
+					e = e || window.event;
+					target = e.target || e.srcElement;
+					for(var len = leftButtonArray.length;len;len--){
+						objLeft = leftButtonArray[len-1];
+						objRight = rightPageArray[len-1];						
+						if(target===objLeft||target.parentElement===objLeft||target.parentElement.parentElement===objLeft){
+							objLeft.style.background='#f8f8f8';
+							objLeft.parentElement.querySelector('.content-main-change-left-mark').style.background='dodgerblue';
+							objRight.className = objRight.className.replace(/hidden/,'show');
+						}
+						else{
+							objLeft.style.background='rgb(212, 229, 255)';	
+							objLeft.parentElement.querySelector('.content-main-change-left-mark').style.background='';
+							objRight.className = objRight.className.replace(/show/,'hidden');
+						}
+					}
+				}
+				
+			}
+			window.onload=function(){
+				changeSubPage();
+			}
+		</script>
+	</body>
+</html>
