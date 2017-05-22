@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*个人用户信息左边栏动画*/
+	@keyframes person-info-in{
+		from{
+			transform: translateX(0);
+		}
+		to{
+			transform: translateX(250px);
+		}
+	}
+	@keyframes person-info-out{
+		from{
+			transform: translateX(250px);
+		}
+		to{
+			transform: translateX(0);
+		}
+	}
+	@keyframes person-arrow-right{
+		from{
+			transform: rotateZ(180deg);
+		}
+		to{
+			transform: rotateZ(0);
+		}
+	}
+	@keyframes person-arrow-left{
+		from{
+			transform: rotateZ(0);
+		}
+		to{
+			transform: rotateZ(-180deg);
+		}
+	}
+	/*注册登录页面动画*/
+	@keyframes page-scale-in{
+		from{transform: scale(0,0);}
+		to{transform: scale(1,1);}
+	}
+	@keyframes page-move-out{
+		from{opacity: 1; transform: translateY(0px); }
+		to{opacity: 0; transform: translateY(-100px);}
+	}
+	/*body主代码*/
+		body{
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+			background: #8795aa;
+			color: black;
+		}
+		.content-main-nav{
+			background: #30486d;
+			height: 50px;
+			border:1px solid #396b82;
+		}
+		.content-main-nav-info{
+			width: 1190px;
+			margin: 0 auto;
+			line-height: 50px;
+			font-size: .5em;
+		}
+		.content-main-nav-info>a{
+			font-family: cursive;
+			font-weight: bold;
+			letter-spacing: .2em;
+			font-size: 2em;
+			color: white;
+			text-decoration: none;
+		}
+		.content-main-nav-info>a:hover{
+			color: cornflowerblue;
+		}
+		.content-main-nav-btn{
+			display: inline-block;
+			float: right;
+			cursor: pointer;
+		}
+		.content-main-nav-btn>span{
+			color: white;
+		}
+		.content-main-nav-btn>span:nth-last-of-type(odd):hover{
+			color: cornflowerblue;
+		}
+		.btn {
+			padding: .3em .8em;
+			border: .05em solid rgba(0, 0, 0, .1);
+			background: #58a linear-gradient(hsla(0, 0%, 100%, .2), transparent);
+			border-radius: .2em;
+			box-shadow: 0 .05em .25em rgba(0, 0, 0, .5);
+			color: white;
+			text-shadow: 0 -.05em .05em rgba(0, 0, 0, .5);
+			font-size: 125%;
+			line-height: 1.5em;
+		}
+		/*登录注册样式后期可以整合*/
+		.content-login-registe{
+			transform: scale(0);
+			text-align: center;
+			width: 450px;
+			height: 700px;
+			position: fixed;
+			left: 50%;
+			top: 50%;
+			margin: -350px 0 0 -225px;
+			border-top: 10px #ca0505 solid;
+			background: linear-gradient(-225deg,rgba(237,237,237,.8) 97%,transparent 0);
+		}
+		.content-login-close{
+			position: absolute;
+			right: 0;
+		}
+		.content-login-close>button{
+			font-size: 1.2em;
+			font-family: cursive;
+			background:transparent;
+			border: none;
+			outline: none;
+			cursor: pointer;
+		}
+		.content-login-close>button:active{
+			color: red;
+		}
+		.content-login-registe>p{
+			text-align: center;
+			font-family: courier;
+			font-size: 4em;
+			font-weight: bold;
+			color: black;
+			margin: 0;
+			padding: 0;
+			margin-left: -5px;
+			margin-top: 30px;
+			height: 100px;
+			line-height: 100px;
+		}
+		.content-login-btn,.content-registe-btn{
+			background-color: rgb(237,237,237);
+			margin-bottom: -1px;
+			display: inline-block;
+			height: 50px;
+			width: 150px;
+			border: .5px dashed #6c6c6c;
+			border-bottom: none;
+			cursor: pointer;
+		}
+		.content-login-btn>p,.content-registe-btn>p{
+			color: #CA0505;
+			margin: 0;
+			padding: 0;
+			line-height: 50px;
+		}
+		.content-login-formset{
+			background-color: rgb(237,237,237);
+			width: 100%;
+			height: 450px;
+			border-top: .5px dashed #6c6c6c;
+		}
+		.content-login-formset>img{
+			width: 200px;
+			height: 200px;
+		}
+		.content-login-from>input{
+			margin: 10px auto;
+			display: block;
+			font-size: 1.4em;
+			border: 1px solid #7a7a7a;
+			outline: none;
+			border-radius: .2em;
+			background:transparent;
+		}
+		.content-login-from>input[type='checkbox'],.content-login-from>input[type='submit']{
+			display: inline;
+		}
+		.content-login-from>input[type='submit']{
+			margin-left: 80px;
+			font-size: .9em;
+			background-color: #193662;
+		}
+		.content-registe-fromset{
+			background-color: rgb(237,237,237);
+			width: 100%;
+			height: 450px;
+			border-top: .5px dashed #6c6c6c;
+		}
+		.content-registe-from>input{
+			margin: 15px auto;
+			display: block;
+			font-size: 1.4em;
+			border: 1px solid #7a7a7a;
+			outline: none;
+			border-radius: .2em;
+			background:transparent;
+		}
+		.content-registe-from>input:nth-of-type(5){
+			margin-bottom: 0;
+		}
+		.content-registe-from>input[placeholder="VerificationCode"]{
+			margin: 0;
+			padding: 0;
+			display: inline;
+			width: 210px;
+		}
+		.content-registe-from>input[type='button']{
+			display: inline;
+			width: 100px;
+			background: #193662;
+			color: white;
+			box-shadow: 0px 1px 2px .5px gray;
+			margin-left: 25px;
+		}
+		.content-registe-from>input[type='submit']{
+			margin-top: 0px;
+			letter-spacing: .5em;
+			width: 350px;
+			background-color: #193662;
+		}
+		.blur{
+			filter:blur(5px) contrast(.8) brightness(.8);
+		}
+		
+		/*个人信息左边栏代码 后期可以整合*/
+		.content-person-info{
+			position: fixed;
+			width: 250px;
+			height: 100%;
+			background-color: rgba(0,0,0,.8);
+			left: -250px;
+			top: 0;
+		}
+		.content-person-info .content-person-show-btn{
+		
+			display: block;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			right: 0;
+			top: 60%;
+			margin-top:-70px ;
+			margin-right: -60px;
+			/*background: radial-gradient(hsla(216,2%,25%,.9),hsla(216,2%,0%,.5)) url(../img/more.png)  no-repeat fixed;*/
+			/*background-blend-mode: multiply;*/
+			background: hsla(216,100%,15%,.8) url(img/icon/more.png) no-repeat ;
+			background-position: 10px 6px;
+			background-size: 90px 90px;
+			border-radius: 50px;
+			color: white;
+			transition: all .2s ease-in-out;
+			cursor: pointer;
+		}
+		.content-person-info .content-person-show-btn:hover{
+			box-shadow: 0 0 5px 3px white;
+		}
+		.content-person-info .content-person-show-btn:active{
+			box-shadow:0 0 5px 1px white;
+		}
+		.content-person-info .content-person-image{
+			background: gainsboro;
+			width: 200px;
+			height: 200px;
+			margin: 50px auto;
+			border-radius: 100px;
+			border: 3px solid gray;
+			overflow: hidden;
+		}
+		.content-person-info .content-person-image>img{
+			width: 200px;
+			height: 200px;
+		}
+		.content-person-detail{
+			color: white;
+			text-align: center;
+		}
+		.content-person-detail>button{
+			outline: none;
+			display: inline-block;
+			margin-top: 20px;
+			font-size: 1em;
+			width: 200px;
+			background: #193662;
+			box-shadow: 0 0 5px 2px #585f69;
+			cursor: pointer;
+			transition: box-shadow .3s ease-in-out;
+		}
+		.content-person-detail>button:hover{
+			box-shadow: 0 0 5px 2px gainsboro;
+		}
+		.footer{
+			margin-top:50px ;
+			border-top:2px solid #396b82 ;
+			background: #30486d;
+			height: 150px;
+		}
+		.content-main-item{
+			text-align: center;
+			
+		}
+		.content-item-info{
+			color: #2c2c2c;
+			text-align: left;
+			display: inline-block;
+			margin-top: 50px;
+			width: 840px;
+			box-sizing: border-box;
+			padding: 20px;
+			background: ghostwhite;
+		}
+		.content-person-info-sub{
+			margin-top: 50px;
+			vertical-align: top;
+			display: inline-block;
+			width: 300px;
+			margin-left: 50px;
+		}
+		.content-publisher-info{
+			border-radius: 5px;
+			width: 300px;
+			height: 400px;
+			background: gainsboro;
+		}
+		.content-receiver-info{
+			margin-top:50px ;
+			width: 300px;
+			height: 400px;
+			background: gainsboro;
+		}
+		.item-img{
+			width: 100%;
+		}
+		.title-p{
+			font-size: 1.3em;
+			line-height: 0px;
+		}
+		.hr{
+			border:none;
+			border-top: .1px solid #396b82 ;
+		}
+		.info-title p{
+			font-size: .8em;
+			line-height: 12px;
+		}
+		.info-title{
+			width: 130px;
+			display: inline-block;
+		}
+		.info-main{
+			vertical-align: top;
+			display: inline-block;
+		}
+		.info-main p{
+			font-size: .8em;
+			line-height: 12px;
+		}
+		.type{
+			height: 40px;
+			font-size: 1.1em;
+			line-height: 40px;
+			color: gray;
+			border-radius: 5px 5px 0 0 ;
+		}
+		.head{
+			background: ghostwhite;
+			padding-top:10px ;
+			padding-bottom: 30px;
+
+		}
+		.head-img{
+			width: 150px;
+			height: 150px;
+			border-radius: 75px;
+			background:gray url(img/logo.png) ;
+			background-size:cover ;
+			margin: 0px auto 0px auto;
+		}
+		.info{
+			position: relative;
+			border-radius: 0 0 5px 5px;
+			font-size: .7em;
+		}
+		.person-info-title{
+			display: inline-block;
+			text-align: left;
+			margin-top: 0px;
+			padding: 30px 30px 10px 30px;
+		}
+		.person-info-title p{
+			line-height: 0px;
+		}
+		.person-info-main{
+			vertical-align: top;
+			display: inline-block;
+			text-align: left;
+			margin-top: 0px;
+			padding: 30px 30px 10px 0px;
+		}
+		.person-info-main p{
+			line-height: 0px;
+			margin-bottom: 32px;
+		}
+		.chat-btn{
+			position: absolute;
+			width: 50px;
+			height: 60px;
+			background: #1296DB;
+			left: 50%;
+			margin-left: -25px;
+			margin-top: -30px;
+			background-image: linear-gradient(30deg,gainsboro 18%,transparent 0),linear-gradient(-30deg,gainsboro 18%,transparent 0),linear-gradient(210deg,ghostwhite 18%,transparent 0),linear-gradient(-210deg,ghostwhite 18%,transparent 0);
+		}
+		.chat-icon{
+			margin-top: 14px;
+		}
+		.info-btn-div{
+			text-align: center;
+			margin-top: 30px;
+			height: 70px;
+		}
+		.accept{
+			background: #1296DB;
+			border: none;
+			text-shadow: none;
+			color: white;
+			width: 300px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="content-main-blur">
+			<div class="content-main-nav">
+				<div class="content-main-nav-info">
+					<a href="">FUNTAKE</a>
+					<div class="content-main-nav-btn">
+						<span name='login'>LOGIN</span>
+						<span>|</span>
+						<span name='signin'>SIGNIN</span>
+					</div>
+				</div>
+			</div>
+			<div class="content-main-item">
+				<div class="content-item-info">
+					<div class="item">
+						<p class="title-p">我爱吃烤鸡翅的订单</p>
+						<hr />
+						<img class="item-img" src="img/timg (6).jpg" />
+						<p class="title-p">详细信息</p>
+						<hr />
+						<div class="info-title">
+							<p>姓名：</p>
+							<p>联系电话：</p>
+							<p>送货地址：</p>
+							<p>预付金额：</p>
+							<p>其他联系方式：</p>
+							<img src="img/personInfoChange/QQ black.png" /><br />
+							<img src="img/personInfoChange/wechat black.png" />
+						</div>
+						<div class="info-main">
+							<p>我爱吃烤鸡翅</p>
+							<p>150*****8951</p>
+							<p>重庆市北碚区西南大学橘园一舍704</p>
+							<p>¥2</p>
+							<br />
+							<p>QQ</p>
+							<p>wechat</p>
+						</div>
+						<hr />
+						<div class="info-btn-div">
+							<button class="btn accept">我要接单</button>
+						</div>
+					</div>
+				</div>
+				<div class="content-person-info-sub">
+					<div class="content-publisher-info">
+						<div class="type">发单人</div>
+						<div class="head">
+							<div class="head-img"></div>
+							<div class="head-text">我爱吃烤鸡翅</div>
+						</div>
+						<div class="info">
+							<div class="chat-btn">
+								<img class="chat-icon" src="img/icon/chat.png" />
+							</div>
+							<div class="person-info-title">
+								<p>联系电话</p>
+								<img src="img/personInfoChange/QQ black.png" />
+								<br />
+								<img src="img/personInfoChange/wechat black.png" />
+							</div>
+							<div class="person-info-main">
+								<p>150*****8951</p>
+								<p>qq</p>
+								<p>wechat</p>
+							</div>
+						</div>
+					</div>
+					<div class="content-receiver-info">
+						<div class="content-publisher-info">
+						<div class="type">接单人</div>
+						<div class="head">
+							<div class="head-img"></div>
+							<div class="head-text">我爱吃烤鸡翅</div>
+						</div>
+						<div class="info">
+							<div class="chat-btn">
+								<img class="chat-icon" src="img/icon/chat.png" />
+							</div>
+							<div class="person-info-title">
+								<p>联系电话</p>
+								<img src="img/personInfoChange/QQ black.png" />
+								<br />
+								<img src="img/personInfoChange/wechat black.png" />
+							</div>
+							<div class="person-info-main">
+								<p>150*****8951</p>
+								<p>qq</p>
+								<p>wechat</p>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="footer">
+
+			</div>
+		</div>
+		<!--登录注册界面-->
+		<div class="content-login-registe">
+			<div class="content-login-close"><button>x</button></div>
+			<p>FUNTAKE</p>
+			<div class="content-login-btn" style='border: none; background:transparent;'><p style="color: black;">LOG IN</p></div><div class="content-registe-btn"><p >SIGN IN</p></div>
+			<div class="content-login-formset" >
+				<img src="img/logo.png" />
+				<form action="" method="post" class="content-login-from">
+					<input type="text" placeholder="Username" />
+					<input type="password" placeholder="Pssword" />
+					<input type="checkbox" name="remember" value="remember" />
+					<a>Remember me?</a>
+					<input type="submit" value="LOGIN" class="btn" />
+				</form>
+				<p>Welcome to Funtake ^_^</p>
+			</div>
+			<div class="content-registe-fromset" style="display: none;">
+				<form action="" method="post" class="content-registe-from">
+					<input type="text" placeholder="Username" />
+					<input type="password" placeholder="Pssword" />
+					<input type="password" placeholder="CheckPassword" />
+					<input type="tel" placeholder="PhoneNumber" />
+					<input type="email" placeholder="Email" />
+					<input type="text" placeholder="VerificationCode" />
+					<input type="button" value="Code"  />
+					<input type="submit" value="REGISTE" class="btn" />
+				</form>
+				<p>Welcome to Funtake ^_^</p>
+			</div>
+		</div>
+		<!--个人信息左栏-->
+		<div class="content-person-info">
+			<div class="content-person-show-btn"></div>
+			<div class="content-person-image">
+				<img src="img/logo.png" />
+			</div>
+			<div class="content-person-detail">
+				<p id="content-person-name">
+					我爱吃烤鸡翅
+				</p>
+				<button class="btn">个人中心</button>
+				<button class="btn">more...</button>
+			</div>
+		</div>
+		<script>
+			//登录注册的函数块
+			function loginAndRegiste(){
+				//查找的注册登录按钮在不同界面要更换
+				var obj = document.querySelectorAll('.content-main-nav-btn span');
+				var body = document.getElementsByClassName('content-main-blur')[0];
+				//loginBtnLi和registeBtnLi在不同界面要更换
+				var loginBtnLi = obj[0],registeBtnLi = obj[2],pageShow=false,personInfoShowBoolean=false;
+				var LoginAndRegistePage = document.getElementsByClassName('content-login-registe')[0];
+				var loginForm=LoginAndRegistePage.getElementsByClassName('content-login-formset')[0];
+				var registeForm = LoginAndRegistePage.getElementsByClassName('content-registe-fromset')[0];
+				var loginBtn =LoginAndRegistePage.getElementsByClassName('content-login-btn')[0];
+				var registeBtn =LoginAndRegistePage.getElementsByClassName('content-registe-btn')[0];
+				var closeBtn = LoginAndRegistePage.getElementsByClassName('content-login-close')[0].childNodes[0];
+				var personInfo = document.getElementsByClassName('content-person-info')[0];
+				var personInfoArrow = personInfo.getElementsByClassName('content-person-show-btn')[0];
+				loginBtnLi.addEventListener('click',function(){
+					showLoginAndRegistePage('login');
+				});
+				registeBtnLi.addEventListener('click',function(){
+					showLoginAndRegistePage('registe');
+				});
+				personInfoArrow.addEventListener('click',function(){
+					personInfoShowBoolean?showOrHidePersonInfo('out'):showOrHidePersonInfo('in');
+				});
+				
+				//显示登录界面的方法
+				function showLoginAndRegistePage(str){	
+					str=str||'';
+					if(pageShow===false&&str){
+						pageShow=true;
+						body.className+=' blur';
+						LoginAndRegistePage.setAttribute('style','animation:page-scale-in .5s ease-in-out forwards;');
+						closeBtn.addEventListener('click',closeLoginAndRegistePage);
+						loginBtn.addEventListener('click',function(){changeLoginAndRegiste('loginBtn')});
+						registeBtn.addEventListener('click',function(){changeLoginAndRegiste('registeBtn')});
+						setTimeout(function(){
+							body.addEventListener('click',closeLoginAndRegistePage);
+						},300);
+						if(str==='login'){
+							loginInfo();
+						}else if(str==='registe'){
+							registeInfo();
+						}
+					}
+				}
+				//关闭登录界面
+				function closeLoginAndRegistePage(){
+					pageShow=false;
+					LoginAndRegistePage.setAttribute('style','animation: page-move-out .5s ease-in-out ;');	
+					body.className='content-main-blur';
+					body.removeEventListener('click',closeLoginAndRegistePage);
+					closeBtn.removeEventListener('click',closeLoginAndRegistePage);
+				}
+				//登录界面内部改变注册或登录
+				function changeLoginAndRegiste(str){
+					str=str||'';
+					if(str&&str==='loginBtn'){
+						loginInfo();
+					}else if(str&&str==='registeBtn'){
+						registeInfo();
+					}
+				}
+				function registeInfo(){
+					registeForm.setAttribute('style','display: block;');
+					loginForm.setAttribute('style','display: none;');
+					loginBtn.setAttribute('style','border: none; background:transparent;');
+					loginBtn.childNodes[0].setAttribute('style','color: black;');
+					registeBtn.removeAttribute('style');
+					registeBtn.childNodes[0].removeAttribute('style');
+				}
+				function loginInfo(){
+					loginForm.setAttribute('style','display: block;');
+					registeForm.setAttribute('style','display: none;');
+					registeBtn.setAttribute('style','border: none; background:transparent;');
+					registeBtn.childNodes[0].setAttribute('style','color: black;');
+					loginBtn.removeAttribute('style');
+					loginBtn.childNodes[0].removeAttribute('style');
+				}
+				//展示或者隐藏个人信息栏
+				function showOrHidePersonInfo(str){
+					str=str||'';
+					if(str&&str==='in'){
+						personInfoShow();
+					}
+					else if(str&&str=='out'){
+						personInfoHide();
+					}
+				}
+				function personInfoShow(){
+					personInfoShowBoolean=true;
+					personInfo.setAttribute('style','animation: person-info-in .7s ease-in-out forwards;')
+					personInfoArrow.setAttribute('style','animation: person-arrow-left .7s ease-in-out forwards;')
+				}
+				function personInfoHide(){
+					personInfoShowBoolean=false;
+					personInfo.setAttribute('style','animation: person-info-out .7s ease-in-out forwards;')
+					personInfoArrow.setAttribute('style','animation: person-arrow-right .7s ease-in-out forwards;')
+				}
+				function submitLoginMessage(){
+					
+				}
+				function submitRegisteMessage(){
+					
+				}
+			}
+			window.onload = function() {
+				loginAndRegiste();
+			}
+		</script>
+	</body>
+</html>
