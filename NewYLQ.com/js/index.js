@@ -387,8 +387,188 @@ function loginAndRegiste(){
 		
 	}
 }
+
+
+//登录注册判断逻辑
+function checkPaginSign(){
+	var usrName = document.getElementById("username"),
+		pwd = document.getElementById("password"),
+		stage = document.getElementById("errorStage"),
+		registUserName = document.getElementById("regist_username"),
+		registPwd = document.getElementById("regist_password"),
+		registCheckPwd = document.getElementById("regist_checkpassword"),
+		registTel = document.getElementById("regist_phonenumber"),
+		registEmail = document.getElementById("regist_email"),
+		registVerificationCode = document.getElementById("regist_verificationcode"),
+		registStage = document.getElementById("regist_errorStage"),
+		registCodeBtn = document.getElementById("regist_verificationcode_btn"),
+		registSendBtn = document.getElementById("regist_btn");
+
+	usrName.M_addEvent('keyup',function(){
+
+		if(usrName.value.length>=6)
+			usrName.checkInput(usrName.value,[
+				{
+					method:'isWithInScope',
+					success:function(data){
+						outputCorrect(stage,data);
+					},
+					err:function(data){
+						outputError(stage,data);
+					}
+				}
+			]);
+	});
+	
+	pwd.M_addEvent('keyup',function(){
+		if(pwd.value.length>=6){
+			pwd.checkInput(pwd.value,[{
+				method:'isWithInScope',
+				success:function(data){
+						outputCorrect(stage,data);
+				},
+				err:function(data){
+					outputError(stage,data);
+				}
+			}
+			]);
+		}
+	});
+	
+	registUserName.M_addEvent('keyup',function(){
+		if(registUserName.value.length>=6){
+			registUserName.checkInput(registUserName.value,[{
+					method:'isWithInScope',
+					success:function(data){
+						outputCorrect(registStage,data);
+					},
+					err:function(data){
+						outputError(registStage,data);
+					}
+				}
+			]);
+		}
+	});
+	registUserName.M_addEvent('blur',function(){
+		if(registUserName.value.length>=6){
+			registUserName.checkInput(registUserName.value,[
+				{
+					method:'isCheckFromBack',
+					ajax:{
+						url:'',
+						method:'',
+						success:function(){
+							outputCorrect(registStage,"Welcome to Funtake ^_^");
+							console.log('success');
+						},
+						error:function(data){
+							outputError(registStage,data);
+						},
+						data:{username:registUserName.value}
+					}
+				}
+			]);
+		}
+	});
+	
+	registPwd.M_addEvent('keyup',function(){
+		if(registPwd.value.length>=6){
+			registPwd.checkInput(registPwd.value,[{
+					method:'isWithInScope',
+					success:function(data){
+						outputCorrect(registStage,data);
+					},
+					err:function(data){
+						outputError(registStage,data);
+					}
+				}
+			]);
+		}
+	});
+	
+	registCheckPwd.M_addEvent('keyup',function(){
+		if(registCheckPwd.value.length>=6){
+			registCheckPwd.checkInput(registCheckPwd.value,[{
+					method:"isSameWithOther",
+					text:registPwd.value,
+					output:"密码与密码验证不一致",
+					success:function(data){
+						outputCorrect(registStage,data);
+					},
+					err:function(data){
+						outputError(registStage,data);
+					}
+				},
+				{
+					method:'isWithInScope',
+					success:function(data){
+						outputCorrect(registStage,data);
+					},
+					err:function(data){
+						outputError(registStage,data);
+					}
+				}
+			]);
+		}
+	});
+	
+	registTel.M_addEvent('blur',function(){
+		if(registTel.value.length>=1){
+			registTel.checkInput(registTel.value,[{
+					method:'isMobile',
+					success:function(data){
+						outputCorrect(registStage,data);
+					},
+					err:function(data){
+						outputError(registStage,data);
+					}
+				}
+			]);
+		}
+	});
+	
+	registEmail.M_addEvent('blur',function(){
+		if(registEmail.value.length>0){
+			registEmail.checkInput(registEmail.value,[{
+					method:'isEmail',
+					success:function(data){
+						outputCorrect(registStage,data);
+						registCodeBtn.disabled=false;
+					},
+					err:function(data){
+						outputError(registStage,data);
+						registCodeBtn.disabled=true;
+					}
+				}
+			]);
+		}
+	});
+	
+	registSendBtn.M_addEvent('click',function(e){
+		if(registPwd.value===registCheckPwd.value){//如果所有验证信息都正确则提交
+			
+		}
+		else{
+			outputError(registStage,"密码与密码验证不一致");
+			e.preventDefault();
+			e.returnValue=false;
+		}
+
+	})
+}
+
+function outputError(obj,data){
+	obj.className = 'warning';
+	obj.innerHTML = data;
+}
+function outputCorrect(obj,data){
+	obj.className = '';
+	obj.innerHTML = data;
+}
+
 window.onload = function() {
 	imageGalleryAnimation();
 	itemScrollAnimation();
 	loginAndRegiste();
+	checkPaginSign();
 }

@@ -5,6 +5,7 @@
 		<title>YLQ</title>
 		<meta http-equiv="Cache-Control" content="max-age=1000" />
 		<link rel="stylesheet" href="css/index.css" type="text/css" />
+		<link rel="stylesheet" href="css/Login&RegistCss.css" />
 	</head>
 	<body>
 		<div class="body">
@@ -277,26 +278,26 @@
 			<div class="content-login-formset" >
 				<img src="img/logo.png" />
 				<form action="http://www.baidu.com" method="post" class="content-login-from">
-					<input type="text" placeholder="Username" />
-					<input type="password" placeholder="Pssword" />
+					<input type="text" id = "username" placeholder="Username" maxlength="16"/>
+					<input type="password" id = "password" placeholder="Pssword" maxlength="16" />
 					<input type="checkbox" name="remember" value="remember" />
 					<a>Remember me?</a>
 					<input type="submit" value="LOGIN" class="btn" />
 				</form>
-				<p>Welcome to Funtake ^_^</p>
+				<p id="errorStage">Welcome to Funtake ^_^</p>
 			</div>
 			<div class="content-registe-fromset" style="display: none;">
 				<form action="" method="post" class="content-registe-from">
-					<input type="text" placeholder="Username" />
-					<input type="password" placeholder="Pssword" />
-					<input type="password" placeholder="CheckPassword" />
-					<input type="tel" placeholder="PhoneNumber" />
-					<input type="email" placeholder="Email" />
-					<input type="text" placeholder="VerificationCode" />
-					<input type="button" value="Code"  />
-					<input type="submit" value="REGISTE" class="btn" />
+					<input type="text" id = "regist_username" placeholder="Username" maxlength="16" />
+					<input type="password" id = "regist_password" placeholder="Pssword" maxlength="16" />
+					<input type="password" id="regist_checkpassword" placeholder="CheckPassword" maxlength="16" />
+					<input type="tel" id="regist_phonenumber" placeholder="PhoneNumber" maxlength="11" />
+					<input type="email" id="regist_email" placeholder="Email" />
+					<input type="text" id="regist_verificationcode" placeholder="VerificationCode" />
+					<input type="button" id="regist_verificationcode_btn" value="Code"  />
+					<input type="submit" id="regist_btn" value="REGISTE" class="btn" />
 				</form>
-				<p>Welcome to Funtake ^_^</p>
+				<p id="regist_errorStage">Welcome to Funtake ^_^</p>
 			</div>
 		</div>
 		<!--个人信息左栏-->
@@ -313,7 +314,8 @@
 				<button class="btn">more...</button>
 			</div>
 		</div>
-		<script src="js/index.js"></script><!-- 主页面代码 -->
+		<script src="js/myFunction.js" ></script>
+		<script src="js/index.js" ></script><!-- 主页面代码 -->
 		<!--<script type="text/javascript" src="js/jqueryRewrite.js" ></script>-->
 	
 	</body>
