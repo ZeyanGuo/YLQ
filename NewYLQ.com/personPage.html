@@ -4,11 +4,13 @@
 		<meta charset="UTF-8">
 		<title>Personal interface</title>
 		<link rel="stylesheet" href="css/personPage.css" type="text/css" />
+		<script src="js/myFunction.js"></script>
+		<script src="js/personPage.js"></script>
 	</head>
 	<body>
 		<div class="content-main-nav">
 			<div class="content-main-nav-info">
-				<a href="">FUNTAKE</a>
+				<a href="index.html">FUNTAKE</a>
 				<div class="content-main-nav-btn">
 					<span name='personName'>您好,我爱吃烤鸡翅</span>
 					<span>|</span>
@@ -20,29 +22,29 @@
 			<div class="content-main-person-stage">
 				<div class="content-main-person-info">
 					<div class="content-main-person-info-main">
-						<img src="img/logo.png" />
-						<span name='personName'>我爱吃烤鸡翅</span>
+						<img id="personImg" src="img/logo.png" />
+						<span id="personName" name='personName'>未登录</span>
 
-						<span>[修改]</span>
+						<span><a class="ah" href="personInfoChange.html">[修改]</a></span>
 					</div>
 					<div class="content-main-person-info-date">
-						<span name='date-number'>5-3</span>
-						<span name='date-week'>星期三</span>
-						<span name='date-temperature'>17°</span>
-						<span name='date-detail'>重庆 阵雨</span>
+						<span id = "date-number" name='date-number'>5-3</span>
+						<span id = "date-week" name='date-week'>星期三</span>
+						<span id = "date-temperature" name='date-temperature'>17°</span>
+						<span id = "date-detail" name='date-detail'>重庆 阵雨</span>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="content-main-goods-mine">
-			<span>MYGOODS</span>
+			<span>我的订单</span>
 			<div class="content-main-goods-mine-nav">
 				<ul>
-					<li>RELEASED</li>
-					<li>FINISHED</li>
+					<li id="my-goods-unfinished">未完成</li>
+					<li id="my-goods-finished">已完成</li>
 				</ul>
 			</div>
-			<div class="content-main-goods-mine-items">
+			<div id="my-goods-stage" class="content-main-goods-mine-items">
 				<div class="content-body-item">
 						<div class="content-body-item-img">
 							<img src="img/timg (2).jpg" />
@@ -78,26 +80,26 @@
 						<p><span>橘园一舍704--申通快递</span></p>
 						<p><img class="icon-person" src="img/icon/addressbook.png" /><span>我爱吃烤鸡翅</span><button class="btn content-body-item-btn btn-red">删除</button></p>
 					</div>
-				<div class="content-body-item-more">
-					<button class="btn btn-light-blue">加载更多</button>
 				</div>
+			<div class="content-body-item-more">
+					<button id = "my-goods-more" class="btn btn-light-blue">加载更多</button>
 			</div>
 		</div>
 		<div class="content-main-goods-accept">
-			<span>MYORDERS</span>
+			<span>我的任务</span>
 			<div class="content-main-goods-accept-nav">
 				<ul>
-					<li>UNTREATED</li>
-					<li>COMPLETED</li>
+					<li id = "my-orders-unfinished">未完成</li>
+					<li id = "my-orders-finished">已完成</li>
 				</ul>
 			</div>
-			<div class="content-main-goods-accept-items">
+			<div id = "my-orders-stage" class="content-main-goods-accept-items">
 				<div class="content-body-item">
 						<div class="content-body-item-img">
 							<img src="img/timg (2).jpg" />
 						</div>
 						<p><span>橘园一舍704--申通快递</span></p>
-						<p><img class="icon-person" src="img/icon/addressbook.png" /><span>我爱吃烤鸡翅</span><button class="btn content-body-item-btn btn-red">删除</button></p>
+						<p><img class="icon-person" src="img/icon/addressbook.png" /><span>我爱吃烤鸡翅</span><button data-flag="delete" class="btn content-body-item-btn btn-red">删除</button></p>
 					</div><!-- 
 				--><div class="content-body-item">
 						<div class="content-body-item-img">
@@ -127,10 +129,10 @@
 						<p><span>橘园一舍704--申通快递</span></p>
 						<p><img class="icon-person" src="img/icon/addressbook.png" /><span>我爱吃烤鸡翅</span><button class="btn content-body-item-btn btn-red">删除</button></p>
 					</div>
-				<div class="content-body-item-more">
-					<button class="btn btn-light-blue">加载更多</button>
-				</div>
 			</div>
+			<div class="content-body-item-more">
+					<button id = "my-orders-more" class="btn btn-light-blue">加载更多</button>
+				</div>
 		</div>
 		<div class="footer">
 				

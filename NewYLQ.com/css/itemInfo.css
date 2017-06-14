@@ -1,0 +1,195 @@
+/*body主代码*/
+		body{
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+			background: #8795aa;
+			color: black;
+		}
+		.content-main-nav{
+			background: #30486d;
+			height: 50px;
+			border:1px solid #396b82;
+		}
+		.content-main-nav-info{
+			width: 1190px;
+			margin: 0 auto;
+			line-height: 50px;
+			font-size: .5em;
+		}
+		.content-main-nav-info>a{
+			font-family: cursive;
+			font-weight: bold;
+			letter-spacing: .2em;
+			font-size: 2em;
+			color: white;
+			text-decoration: none;
+		}
+		.content-main-nav-info>a:hover{
+			color: cornflowerblue;
+		}
+		.content-main-nav-btn{
+			display: inline-block;
+			float: right;
+			cursor: pointer;
+		}
+		.content-main-nav-btn>span{
+			color: white;
+		}
+		.content-main-nav-btn>span:nth-last-of-type(odd):hover{
+			color: cornflowerblue;
+		}
+		.btn {
+			padding: .3em .8em;
+			border: .05em solid rgba(0, 0, 0, .1);
+			background: #58a linear-gradient(hsla(0, 0%, 100%, .2), transparent);
+			border-radius: .2em;
+			box-shadow: 0 .05em .25em rgba(0, 0, 0, .5);
+			color: white;
+			text-shadow: 0 -.05em .05em rgba(0, 0, 0, .5);
+			font-size: 125%;
+			line-height: 1.5em;
+		}
+		
+		.footer{
+			margin-top:50px ;
+			border-top:2px solid #396b82 ;
+			background: #30486d;
+			height: 150px;
+		}
+		.content-main-item{
+			text-align: center;
+			
+		}
+		.content-item-info{
+			color: #2c2c2c;
+			text-align: left;
+			display: inline-block;
+			margin-top: 50px;
+			width: 840px;
+			box-sizing: border-box;
+			padding: 20px;
+			background: ghostwhite;
+		}
+		.content-person-info-sub{
+			margin-top: 50px;
+			vertical-align: top;
+			display: inline-block;
+			width: 300px;
+			margin-left: 50px;
+		}
+		.content-publisher-info{
+			border-radius: 5px;
+			width: 300px;
+			height: 400px;
+			background: gainsboro;
+		}
+		.content-receiver-info{
+			margin-top:50px ;
+			width: 300px;
+			height: 400px;
+			background: gainsboro;
+		}
+		.item-img{
+			width: 100%;
+		}
+		.title-p{
+			font-size: 1.3em;
+			line-height: 0px;
+		}
+		.hr{
+			border:none;
+			border-top: .1px solid #396b82 ;
+		}
+		.info-title p{
+			font-size: .8em;
+			line-height: 12px;
+		}
+		.info-title{
+			width: 130px;
+			display: inline-block;
+		}
+		.info-main{
+			vertical-align: top;
+			display: inline-block;
+		}
+		.info-main p{
+			font-size: .8em;
+			line-height: 12px;
+		}
+		.type{
+			height: 40px;
+			font-size: 1.1em;
+			line-height: 40px;
+			color: gray;
+			border-radius: 5px 5px 0 0 ;
+		}
+		.head{
+			background: ghostwhite;
+			padding-top:10px ;
+			padding-bottom: 30px;
+
+		}
+		.head-img{
+			width: 150px;
+			height: 150px;
+			border-radius: 75px;
+			overflow: hidden;
+			background:gray;
+			background-size:cover ;
+			margin: 0px auto 0px auto;
+		}
+		.head-img>img{
+			width: 150px;
+			height: 150px;
+		}
+		.info{
+			position: relative;
+			border-radius: 0 0 5px 5px;
+			font-size: .7em;
+		}
+		.person-info-title{
+			display: inline-block;
+			text-align: left;
+			margin-top: 0px;
+			padding: 30px 30px 10px 30px;
+		}
+		.person-info-title p{
+			line-height: 0px;
+		}
+		.person-info-main{
+			vertical-align: top;
+			display: inline-block;
+			text-align: left;
+			margin-top: 0px;
+			padding: 30px 30px 10px 0px;
+		}
+		.person-info-main p{
+			line-height: 0px;
+			margin-bottom: 32px;
+		}
+		.chat-btn{
+			position: absolute;
+			width: 50px;
+			height: 60px;
+			background: #1296DB;
+			left: 50%;
+			margin-left: -25px;
+			margin-top: -30px;
+			background-image: linear-gradient(30deg,gainsboro 18%,transparent 0),linear-gradient(-30deg,gainsboro 18%,transparent 0),linear-gradient(210deg,ghostwhite 18%,transparent 0),linear-gradient(-210deg,ghostwhite 18%,transparent 0);
+		}
+		.chat-icon{
+			margin-top: 14px;
+		}
+		.info-btn-div{
+			text-align: center;
+			margin-top: 30px;
+			height: 70px;
+		}
+		.accept{
+			background: #1296DB;
+			border: none;
+			text-shadow: none;
+			color: white;
+			width: 300px;
+		}

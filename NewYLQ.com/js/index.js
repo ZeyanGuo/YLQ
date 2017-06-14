@@ -284,111 +284,176 @@ function itemScrollAnimation(){
 		}
 	}
 }
-//登录注册的函数块
-function loginAndRegiste(){
-	var obj = document.querySelectorAll('.content-nav a');
-	var body = document.getElementsByClassName('body')[0];
-	var loginBtnLi = obj[0],registeBtnLi = obj[1],pageShow=false,personInfoShowBoolean=false;
-	var LoginAndRegistePage = document.getElementsByClassName('content-login-registe')[0];
-	var loginForm=LoginAndRegistePage.getElementsByClassName('content-login-formset')[0];
-	var registeForm = LoginAndRegistePage.getElementsByClassName('content-registe-fromset')[0];
-	var loginBtn =LoginAndRegistePage.getElementsByClassName('content-login-btn')[0];
-	var registeBtn =LoginAndRegistePage.getElementsByClassName('content-registe-btn')[0];
-	var closeBtn = LoginAndRegistePage.getElementsByClassName('content-login-close')[0].childNodes[0];
-	var personInfo = document.getElementsByClassName('content-person-info')[0];
-	var personInfoArrow = personInfo.getElementsByClassName('content-person-show-btn')[0];
-	loginBtnLi.addEventListener('click',function(){
-		showLoginAndRegistePage('login');
-	});
-	registeBtnLi.addEventListener('click',function(){
-		showLoginAndRegistePage('registe');
-	});
-	personInfoArrow.addEventListener('click',function(){
-		personInfoShowBoolean?showOrHidePersonInfo('out'):showOrHidePersonInfo('in');
-	});
-	
-	//显示登录界面的方法
-	function showLoginAndRegistePage(str){	
-		str=str||'';
-		if(pageShow===false&&str){
-			pageShow=true;
-			body.className+=' blur';
-			LoginAndRegistePage.setAttribute('style','animation:page-scale-in .5s ease-in-out forwards;');
-			closeBtn.addEventListener('click',closeLoginAndRegistePage);
-			loginBtn.addEventListener('click',function(){changeLoginAndRegiste('loginBtn')});
-			registeBtn.addEventListener('click',function(){changeLoginAndRegiste('registeBtn')});
-			setTimeout(function(){
-				body.addEventListener('click',closeLoginAndRegistePage);
-			},300);
-			if(str==='login'){
-				loginInfo();
-			}else if(str==='registe'){
-				registeInfo();
-			}
-		}
-	}
-	//关闭登录界面
-	function closeLoginAndRegistePage(){
-		pageShow=false;
-		LoginAndRegistePage.setAttribute('style','animation: page-move-out .5s ease-in-out ;');	
-		body.className='body';
-		body.removeEventListener('click',closeLoginAndRegistePage);
-		closeBtn.removeEventListener('click',closeLoginAndRegistePage);
-	}
-	//登录界面内部改变注册或登录
-	function changeLoginAndRegiste(str){
-		str=str||'';
-		if(str&&str==='loginBtn'){
-			loginInfo();
-		}else if(str&&str==='registeBtn'){
-			registeInfo();
-		}
-	}
-	function registeInfo(){
-		registeForm.setAttribute('style','display: block;');
-		loginForm.setAttribute('style','display: none;');
-		loginBtn.setAttribute('style','border: none; background:transparent;');
-		loginBtn.childNodes[0].setAttribute('style','color: black;');
-		registeBtn.removeAttribute('style');
-		registeBtn.childNodes[0].removeAttribute('style');
-	}
-	function loginInfo(){
-		loginForm.setAttribute('style','display: block;');
-		registeForm.setAttribute('style','display: none;');
-		registeBtn.setAttribute('style','border: none; background:transparent;');
-		registeBtn.childNodes[0].setAttribute('style','color: black;');
-		loginBtn.removeAttribute('style');
-		loginBtn.childNodes[0].removeAttribute('style');
-	}
-	//展示或者隐藏个人信息栏
-	function showOrHidePersonInfo(str){
-		str=str||'';
-		if(str&&str==='in'){
-			personInfoShow();
-		}
-		else if(str&&str=='out'){
-			personInfoHide();
-		}
-	}
-	function personInfoShow(){
-		personInfoShowBoolean=true;
-		personInfo.setAttribute('style','animation: person-info-in .7s ease-in-out forwards;')
-		personInfoArrow.setAttribute('style','animation: person-arrow-left .7s ease-in-out forwards;')
-	}
-	function personInfoHide(){
-		personInfoShowBoolean=false;
-		personInfo.setAttribute('style','animation: person-info-out .7s ease-in-out forwards;')
-		personInfoArrow.setAttribute('style','animation: person-arrow-right .7s ease-in-out forwards;')
-	}
-	function submitLoginMessage(){
-		
-	}
-	function submitRegisteMessage(){
-		
-	}
+
+function loginAndRegisteApply(){
+	var obj = document.querySelectorAll('.content-nav a'),
+		body = document.getElementsByClassName('body')[0],
+		loginBtnLi = obj[0],registeBtnLi = obj[1];
+	loginAndRegiste(obj,body,loginBtnLi,registeBtnLi,'body');
 }
-window.onload = function() {
+//
+////登录注册的函数块
+//function loginAndRegiste(){
+//	var obj = document.querySelectorAll('.content-nav a');
+//	var body = document.getElementsByClassName('body')[0];
+//	var loginBtnLi = obj[0],registeBtnLi = obj[1],pageShow=false,personInfoShowBoolean=false;
+//	var LoginAndRegistePage = document.getElementsByClassName('content-login-registe')[0];
+//	var loginForm=LoginAndRegistePage.getElementsByClassName('content-login-formset')[0];
+//	var registeForm = LoginAndRegistePage.getElementsByClassName('content-registe-fromset')[0];
+//	var loginBtn =LoginAndRegistePage.getElementsByClassName('content-login-btn')[0];
+//	var registeBtn =LoginAndRegistePage.getElementsByClassName('content-registe-btn')[0];
+//	var closeBtn = LoginAndRegistePage.getElementsByClassName('content-login-close')[0].childNodes[0];
+//	var personInfo = document.getElementsByClassName('content-person-info')[0];
+//	var personInfoArrow = personInfo.getElementsByClassName('content-person-show-btn')[0];
+//	loginBtnLi.addEventListener('click',function(){
+//		showLoginAndRegistePage('login');
+//	});
+//	registeBtnLi.addEventListener('click',function(){
+//		showLoginAndRegistePage('registe');
+//	});
+//	personInfoArrow.addEventListener('click',function(){
+//		personInfoShowBoolean?showOrHidePersonInfo('out'):showOrHidePersonInfo('in');
+//	});
+//	
+//	//显示登录界面的方法
+//	function showLoginAndRegistePage(str){	
+//		str=str||'';
+//		if(pageShow===false&&str){
+//			pageShow=true;
+//			body.className+=' blur';
+//			LoginAndRegistePage.setAttribute('style','animation:page-scale-in .5s ease-in-out forwards;');
+//			closeBtn.addEventListener('click',closeLoginAndRegistePage);
+//			loginBtn.addEventListener('click',function(){changeLoginAndRegiste('loginBtn')});
+//			registeBtn.addEventListener('click',function(){changeLoginAndRegiste('registeBtn')});
+//			setTimeout(function(){
+//				body.addEventListener('click',closeLoginAndRegistePage);
+//			},300);
+//			if(str==='login'){
+//				loginInfo();
+//			}else if(str==='registe'){
+//				registeInfo();
+//			}
+//		}
+//	}
+//	//关闭登录界面
+//	function closeLoginAndRegistePage(){
+//		pageShow=false;
+//		LoginAndRegistePage.setAttribute('style','animation: page-move-out .5s ease-in-out ;');	
+//		body.className='body';
+//		body.removeEventListener('click',closeLoginAndRegistePage);
+//		closeBtn.removeEventListener('click',closeLoginAndRegistePage);
+//	}
+//	//登录界面内部改变注册或登录
+//	function changeLoginAndRegiste(str){
+//		str=str||'';
+//		if(str&&str==='loginBtn'){
+//			loginInfo();
+//		}else if(str&&str==='registeBtn'){
+//			registeInfo();
+//		}
+//	}
+//	function registeInfo(){
+//		registeForm.setAttribute('style','display: block;');
+//		loginForm.setAttribute('style','display: none;');
+//		loginBtn.setAttribute('style','border: none; background:transparent;');
+//		loginBtn.childNodes[0].setAttribute('style','color: black;');
+//		registeBtn.removeAttribute('style');
+//		registeBtn.childNodes[0].removeAttribute('style');
+//	}
+//	function loginInfo(){
+//		loginForm.setAttribute('style','display: block;');
+//		registeForm.setAttribute('style','display: none;');
+//		registeBtn.setAttribute('style','border: none; background:transparent;');
+//		registeBtn.childNodes[0].setAttribute('style','color: black;');
+//		loginBtn.removeAttribute('style');
+//		loginBtn.childNodes[0].removeAttribute('style');
+//	}
+//	//展示或者隐藏个人信息栏
+//	function showOrHidePersonInfo(str){
+//		str=str||'';
+//		if(str&&str==='in'){
+//			personInfoShow();
+//		}
+//		else if(str&&str=='out'){
+//			personInfoHide();
+//		}
+//	}
+//	function personInfoShow(){
+//		personInfoShowBoolean=true;
+//		personInfo.setAttribute('style','animation: person-info-in .7s ease-in-out forwards;')
+//		personInfoArrow.setAttribute('style','animation: person-arrow-left .7s ease-in-out forwards;')
+//	}
+//	function personInfoHide(){
+//		personInfoShowBoolean=false;
+//		personInfo.setAttribute('style','animation: person-info-out .7s ease-in-out forwards;')
+//		personInfoArrow.setAttribute('style','animation: person-arrow-right .7s ease-in-out forwards;')
+//	}
+//	function submitLoginMessage(){
+//		
+//	}
+//	function submitRegisteMessage(){
+//		
+//	}
+//	
+//	
+//	checkPaginSign();//调用注册检测模块函数
+//}
+
+
+
+
+
+//模版封装代码，用于将排名靠前的模版信息通过Ajax返回给前台
+function rankListAddModel(){
+	var stage = document.getElementById("stageOne"),
+		modelDate = null;
+	ajax({//异步调用后台接口返回相关的信息
+		url:'',
+		method:'get',
+		success:function(data){
+			var objFragment = document.createDocumentFragment();
+			modelDate = JSON.parse(data);//后台json数据转换
+			for(var i,len=modelDate.length;i<len;i++)
+				objFragment.appendChild(IndexPageModel(modelDate[i]));//成功之后将json数据和存入对象的数据作为参数调用IndexPageModel函数
+			stage.appendChild(objFragment);
+		},
+		error:function(data){
+			console.error("error message "+data);
+		}
+	});
+}
+
+function itemListAddModel(){
+	var stageOne = document.getElementById("stageTwo"),
+		stageTwo = document.getElementById("stageThree"),
+		modelDate = null;
+	ajax({//异步调用后台接口返回相关的信息
+		url:'',
+		method:'get',
+		success:function(data){
+			modelDate = JSON.parse(data);//后台json数据转换
+			for(var i,len=modelDate.length;i<len;i++){//成功之后将json数据和存入对象的数据作为参数调用IndexPageModel函数
+				i<3?IndexPageModel(stageOne,modelDate[i]):IndexPageModel(stageTwo,modelDate[i]); //itemList显示六个数据，因此分两行执行
+			}
+		},
+		error:function(data){
+			console.error("error message "+data);
+		}
+	});
+}
+
+function initPage(){
+	
 	imageGalleryAnimation();
 	itemScrollAnimation();
-	loginAndRegiste();
+	loginAndRegisteApply();
 }
+
+
+addWindowLoad(initPage);
+//
+//window.onload = function() {
+//	imageGalleryAnimation();
+//	itemScrollAnimation();
+//	loginAndRegiste();
+//}

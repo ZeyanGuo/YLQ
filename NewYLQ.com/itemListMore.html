@@ -4,41 +4,49 @@
 		<meta charset="UTF-8">
 		<title>itemListMore</title>
 		<link rel="stylesheet" href="css/itemListMore.css" type="text/css" />
+		<link rel="stylesheet" href="css/Login&RegistCss.css" />
+		<script src="js/myFunction.js"></script>
+		<script src="js/itemModel.js"></script>
+		<script src="js/Login&Regist.js"></script>
+		<script src="js/item&RankListMore.js"></script>
 	</head>
 	<body>
 		<div class="content-main-blur">
 			<div class="content-main-nav">
 				<div class="content-main-nav-info">
-					<a href="">FUNTAKE</a>
+					<a href="index.html">FUNTAKE</a>
 					<div class="content-main-nav-btn">
-						<span name='login'>LOGIN</span>
+						<!--注意此处与index界面不一致，每个拥有该按钮的都需要进行修改-->
+						<span id="content-login&regist"><span name='login'>登录</span>
 						<span>|</span>
-						<span name='signin'>SIGNIN</span>
+						<span name='signin'>注册</span></span>
+						<span id="content-exit" style="display: none;"><a>退出</a></span>
 					</div>
 				</div>
 			</div>
-		
+			<input style="display: none;" id="flag" value="item" />
 			<div class="content-body-nav-search">
 					<img src="img/backgroundImg.jpg" />
-					<input type="text" placeholder="Search" /><span class="icon-seach">SEARCH</span>
+					<input id="searchInput" type="text" placeholder="Search" /><span id="searchBtn" class="icon-seach">SEARCH</span>
 			</div>
 			<div class="body">
 				<div class="content-body-nav-info">
 					<ul>
-						<li>BtnOne</li>
-						<li>BtnTwo</li>
-						<li>BtnThree</li>
+						<li><a class="ah" href="index.html">主页</a></li>
+						<li><a class="ah" href="rankListMore.html">排行</a></li>
+
 					</ul>
 				</div>
-				<div class="content-body-item-stage">
+				<div id='itemStage' class="content-body-item-stage">
 					<div class="content-body-item">
 						<div class="content-body-item-img">
 							<img src="img/timg (2).jpg" />
 						</div>
 						<p><span>橘园一舍704--申通快递</span></p>
-						<p><img class="icon-person" src="img/icon/addressbook.png" /><span>我爱吃烤鸡翅</span><button class="btn content-body-item-btn btn-red">接单</button></p>
-					</div><!-- 
-				--><div class="content-body-item">
+						<p><img class="icon-person" src="img/icon/addressbook.png" /><span>我爱吃烤鸡翅</span>
+							<a href="itemInfo.html" class="btn content-body-item-btn btn-red">接单</a></p>
+					</div>
+					<div class="content-body-item">
 						<div class="content-body-item-img">
 							<img src="img/timg (2).jpg" />
 						</div>
@@ -174,7 +182,7 @@
 					
 				</div>
 				<div class="content-body-item-more">
-					<button class="btn btn-light-blue">加载更多</button>
+					<button id = "addMoreBtn" class="btn btn-light-blue">加载更多</button>
 				</div>
 			</div>
 		
@@ -189,43 +197,43 @@
 			<div class="content-login-btn" style='border: none; background:transparent;'><p style="color: black;">LOG IN</p></div><div class="content-registe-btn"><p >SIGN IN</p></div>
 			<div class="content-login-formset" >
 				<img src="img/logo.png" />
-				<form action="" method="post" class="content-login-from">
-					<input type="text" placeholder="Username" />
-					<input type="password" placeholder="Pssword" />
+				<form action="http://www.baidu.com" method="post" class="content-login-from">
+					<input type="text" id = "username" placeholder="Username" maxlength="16"/>
+					<input type="password" id = "password" placeholder="Pssword" maxlength="16" />
 					<input type="checkbox" name="remember" value="remember" />
 					<a>Remember me?</a>
-					<input type="submit" value="LOGIN" class="btn" />
+					<input id="login_btn" type="submit" value="LOGIN" class="btn" />
 				</form>
-				<p>Welcome to Funtake ^_^</p>
+				<p id="errorStage">Welcome to Funtake ^_^</p>
 			</div>
 			<div class="content-registe-fromset" style="display: none;">
 				<form action="" method="post" class="content-registe-from">
-					<input type="text" placeholder="Username" />
-					<input type="password" placeholder="Pssword" />
-					<input type="password" placeholder="CheckPassword" />
-					<input type="tel" placeholder="PhoneNumber" />
-					<input type="email" placeholder="Email" />
-					<input type="text" placeholder="VerificationCode" />
-					<input type="button" value="Code"  />
-					<input type="submit" value="REGISTE" class="btn" />
+					<input type="text" id = "regist_username" placeholder="Username" maxlength="16" />
+					<input type="password" id = "regist_password" placeholder="Pssword" maxlength="16" />
+					<input type="password" id="regist_checkpassword" placeholder="CheckPassword" maxlength="16" />
+					<input type="tel" id="regist_phonenumber" placeholder="PhoneNumber" maxlength="11" />
+					<input type="email" id="regist_email" placeholder="Email" />
+					<input type="text" id="regist_verificationcode" placeholder="VerificationCode" />
+					<input type="button" id="regist_verificationcode_btn" value="Code"  />
+					<input type="submit" id="regist_btn" value="REGISTE" class="btn" />
 				</form>
-				<p>Welcome to Funtake ^_^</p>
+				<p id="regist_errorStage">Welcome to Funtake ^_^</p>
 			</div>
 		</div>
 		<!--个人信息左栏-->
 		<div class="content-person-info">
 			<div class="content-person-show-btn"></div>
 			<div class="content-person-image">
-				<img src="img/logo.png" />
+				<img  id = "leftPersonImage" src="img/logo.png" />
 			</div>
 			<div class="content-person-detail">
-				<p id="content-person-name">
+				<p id="leftPersonName" id="content-person-name">
 					我爱吃烤鸡翅
 				</p>
-				<button class="btn">个人中心</button>
+				<button id="personCenter" class="btn">个人中心</button>
 				<button class="btn">more...</button>
 			</div>
 		</div>
-		<script src="js/itemListMore.js" type="text/jscript"></script>
+
 	</body>
 </html>

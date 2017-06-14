@@ -5,6 +5,12 @@
 		<title>YLQ</title>
 		<meta http-equiv="Cache-Control" content="max-age=1000" />
 		<link rel="stylesheet" href="css/index.css" type="text/css" />
+		<link rel="stylesheet" href="css/Login&RegistCss.css" />
+		<script src="js/myFunction.js" ></script>
+		<script src="js/itemModel.js"></script>
+		<script src="js/Login&Regist.js"></script>
+		<script src="js/index.js" ></script><!-- 主页面代码 -->
+		<!--<script type="text/javascript" src="js/jqueryRewrite.js" ></script>-->
 	</head>
 	<body>
 		<div class="body">
@@ -51,7 +57,15 @@
 						</ul>
 					</li>
 					<li>
-						<a>LOGIN</a>/<a>REGIST</a>
+						<span id="content-login&regist"><a>登录</a>/<a>注册</a></span>
+						<span id="content-exit" style="display: none;"><a>EXIT</a></span>
+						<!--<script>
+							window.exitBtn = document.createElement('span');
+							exitBtn.appendChild(document.createTextNode('EXIT'));
+							exitBtn.className="content-li-exit";
+							document.getElementById('content-login&regist').parentElement.appendChild(exitBtn);
+						</script>-->
+
 					</li>
 				</ul>
 			</nav>
@@ -117,10 +131,11 @@
 					</div>
 				</div>
 				<div class="content-main-rankList">
-					<p>RANKLIST</p>
-					<div class="content-main-item-stage">
+					<p>排行榜</p>
+					<div id="stageOne" class="content-main-item-stage">
 						<div class="content-main-item">
 							<div class="content-main-item-head">
+								<img src="img/logo.png" />
 							</div>
 							<div class="content-main-item-info">
 								<p>简介:</p>
@@ -147,7 +162,7 @@
 								<p>作为一名教育和保健护理工作者,我曾经</p>
 							</div>
 						</div><!--
-						--><div class="content-main-item">
+						--><!--<div class="content-main-item">
 							<div class="content-main-item-head">
 							</div>
 							<div class="content-main-item-info">
@@ -160,15 +175,26 @@
 								<span>简介:</span>
 								<p>作为一名教育和保健护理工作者,我曾经</p>
 							</div>
-						</div>
+						</div>-->
 					</div>
+					<script>
+//						var stage = document.getElementById("stageOne"),
+//							Obj = {
+//								name:"我爱吃烤鸡翅",
+//								namebrief:"个人信息简介",
+//								brief:"信息简介",
+//								img:"img/logo.png"
+//							}
+//						IndexPageModel(stage,Obj);
+						rankListAddModel();
+					</script>
 					<div class="content-main-btn">
-						<button class="btn btn-green">MORE INFORMATION...</button>
+						<a href="rankListMore.html" class="btn btn-green">点击获取更多信息...</a>
 					</div>
 				</div>
 				<div class="content-main-selectList">
-					<p>ITEMLIST</p>
-					<div class="content-main-item-stage">
+					<p>项目榜</p>
+					<div id="stageTwo" class="content-main-item-stage">
 						<div class="content-main-item">
 							<div class="content-main-item-head">
 							</div>
@@ -212,7 +238,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="content-main-item-stage">
+					<div id="stageThree" class="content-main-item-stage">
 						<div class="content-main-item">
 							<div class="content-main-item-head">
 							</div>
@@ -256,8 +282,11 @@
 							</div>
 						</div>
 					</div>
+					<script>
+						itemListAddModel();
+					</script>
 					<div class="content-main-btn">
-						<button class="btn btn-green">MORE INFORMATION...</button>
+						<a href="itemListMore.html" class="btn btn-green">点击获取更多信息...</a>
 					</div>
 				</div>
 			</div>
@@ -277,44 +306,42 @@
 			<div class="content-login-formset" >
 				<img src="img/logo.png" />
 				<form action="http://www.baidu.com" method="post" class="content-login-from">
-					<input type="text" placeholder="Username" />
-					<input type="password" placeholder="Pssword" />
+					<input type="text" id = "username" placeholder="Username" maxlength="16"/>
+					<input type="password" id = "password" placeholder="Pssword" maxlength="16" />
 					<input type="checkbox" name="remember" value="remember" />
 					<a>Remember me?</a>
-					<input type="submit" value="LOGIN" class="btn" />
+					<input id="login_btn" type="submit" value="LOGIN" class="btn" />
 				</form>
-				<p>Welcome to Funtake ^_^</p>
+				<p id="errorStage">Welcome to Funtake ^_^</p>
 			</div>
 			<div class="content-registe-fromset" style="display: none;">
 				<form action="" method="post" class="content-registe-from">
-					<input type="text" placeholder="Username" />
-					<input type="password" placeholder="Pssword" />
-					<input type="password" placeholder="CheckPassword" />
-					<input type="tel" placeholder="PhoneNumber" />
-					<input type="email" placeholder="Email" />
-					<input type="text" placeholder="VerificationCode" />
-					<input type="button" value="Code"  />
-					<input type="submit" value="REGISTE" class="btn" />
+					<input type="text" id = "regist_username" placeholder="Username" maxlength="16" />
+					<input type="password" id = "regist_password" placeholder="Pssword" maxlength="16" />
+					<input type="password" id="regist_checkpassword" placeholder="CheckPassword" maxlength="16" />
+					<input type="tel" id="regist_phonenumber" placeholder="PhoneNumber" maxlength="11" />
+					<input type="email" id="regist_email" placeholder="Email" />
+					<input type="text" id="regist_verificationcode" placeholder="VerificationCode" />
+					<input type="button" id="regist_verificationcode_btn" value="Code"  />
+					<input type="submit" id="regist_btn" value="REGISTE" class="btn" />
 				</form>
-				<p>Welcome to Funtake ^_^</p>
+				<p id="regist_errorStage">Welcome to Funtake ^_^</p>
 			</div>
 		</div>
 		<!--个人信息左栏-->
 		<div class="content-person-info">
 			<div class="content-person-show-btn"></div>
 			<div class="content-person-image">
-				<img src="img/logo.png" />
+				<img  id = "leftPersonImage" src="img/logo.png" />
 			</div>
 			<div class="content-person-detail">
-				<p id="content-person-name">
-					我爱吃烤鸡翅
+				<p id="leftPersonName" id="content-person-name">
+					未登录
 				</p>
-				<button class="btn">个人中心</button>
+				<button id="personCenter" class="btn">个人中心</button>
 				<button class="btn">more...</button>
 			</div>
 		</div>
-		<script src="js/index.js"></script><!-- 主页面代码 -->
-		<!--<script type="text/javascript" src="js/jqueryRewrite.js" ></script>-->
-	
+
 	</body>
 </html>
