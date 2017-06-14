@@ -26,6 +26,7 @@ var strategy = {//value为字符串 err为回调函数 obj为对象,isCheckFromB
 		success("Welcome to Funtake ^_^");
 		return true;
 	},
+<<<<<<< HEAD
 	isNotEmpty:function(value,success,err){
 		if(value===''){
 			err("该信息不能为空");
@@ -52,6 +53,8 @@ var strategy = {//value为字符串 err为回调函数 obj为对象,isCheckFromB
 		success('快递编号正确');
 		return true;
 	},
+=======
+>>>>>>> ceb7fb2697dcd2f9b62a6913aeb9f39c47b8b6aa
 	isSameWithOther:function(value,text,output,success,err){
 		if(!(value===text)){
 			err(output);
@@ -70,7 +73,11 @@ HTMLElement.prototype.checkInput = function(value,checkArray){//checkArray 内�
 	for(var i = 0,len = checkArray.length;i<len;i++){
 		var temp = checkArray[i];
 		if(temp.method === "isCheckFromBack"){//在传入参数需要进行后台认证时执行的函数
+<<<<<<< HEAD
 			strategy[temp.method](temp.ajax);
+=======
+			strategy[temp.method](obj);
+>>>>>>> ceb7fb2697dcd2f9b62a6913aeb9f39c47b8b6aa
 			continue;
 		}
 		if(temp.method === 'isSameWithOther'){//在传入比较两个对象值时调用的函数
@@ -150,7 +157,11 @@ function newXmlRequest(){
 }
 
 //在HTMLElement对象下封装addEvent方法
+<<<<<<< HEAD
 HTMLElement.prototype.M_addEvent = function(method,func){//可以进行优化，因为已经确认浏览器可以支持的方法，但是每次调用依旧进行了一次浏览器功能判断
+=======
+HTMLElement.prototype.M_addEvent = function(method,func){
+>>>>>>> ceb7fb2697dcd2f9b62a6913aeb9f39c47b8b6aa
 	if(document.addEventListener){
 		this.addEventListener(method,func);
 	}
@@ -161,6 +172,7 @@ HTMLElement.prototype.M_addEvent = function(method,func){//可以进行优化，
 		//其他的处理方案
 	}
 }
+<<<<<<< HEAD
 HTMLElement.prototype.M_removeEvent = function(method,func){
 	if(document.removeEventListener){
 		HTMLElement.prototype.M_removeEvent = function(method,func){
@@ -178,6 +190,8 @@ HTMLElement.prototype.M_removeEvent = function(method,func){
 		//其他处理方案
 	}
 }
+=======
+>>>>>>> ceb7fb2697dcd2f9b62a6913aeb9f39c47b8b6aa
 function fire(obj,event){
 	if(Element.dispatchEvent){
 		obj.dispatchEvent(event);	
@@ -186,6 +200,7 @@ function fire(obj,event){
 		obj.fireEvent(event);
 	}
 }
+<<<<<<< HEAD
 
 function preventDefault(event){//阻止默认事件
 	var event = event||window.event;
@@ -431,3 +446,5 @@ Array.prototype._push=function(obj){
 function exitWeb(){//清除cookie,重定向到主页
 	
 }
+=======
+>>>>>>> ceb7fb2697dcd2f9b62a6913aeb9f39c47b8b6aa

@@ -198,9 +198,14 @@
 			top: 0;
 			width: 300px;
 			height: 200px;
+<<<<<<< HEAD
 			background: url(../img/backgroundImg.jpg);
 			background-size: cover;
 			background-repeat: no-repeat;
+=======
+			background: url(img/backgroundImg.jpg);
+			background-size:cover ;
+>>>>>>> ceb7fb2697dcd2f9b62a6913aeb9f39c47b8b6aa
 		}
 		.mark{
 			position: absolute;
@@ -236,6 +241,7 @@
 			background: url(../img/personInfoChange/delete.png);
 			background-size:cover ;
 		}
+<<<<<<< HEAD
 		/*图片div代码片段*/
 		.warning{
 			line-height: 0px;
@@ -243,3 +249,6 @@
 			color: darkred;
 			padding-left: 20px;
 		}
+=======
+		/*图片div代码片段*/
+>>>>>>> ceb7fb2697dcd2f9b62a6913aeb9f39c47b8b6aa

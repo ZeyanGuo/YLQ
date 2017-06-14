@@ -134,6 +134,7 @@
 			width: 150px;
 			height: 150px;
 			border-radius: 75px;
+<<<<<<< HEAD
 			overflow: hidden;
 			background:gray;
 			background-size:cover ;
@@ -143,6 +144,12 @@
 			width: 150px;
 			height: 150px;
 		}
+=======
+			background:gray url(../img/logo.png) ;
+			background-size:cover ;
+			margin: 0px auto 0px auto;
+		}
+>>>>>>> ceb7fb2697dcd2f9b62a6913aeb9f39c47b8b6aa
 		.info{
 			position: relative;
 			border-radius: 0 0 5px 5px;

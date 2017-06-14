@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 @keyframes page-scale-in{
 	from{transform: scale(0,0);}
@@ -12,6 +13,9 @@
 			filter:blur(5px) contrast(.8) brightness(.8);
 		}
 		.btn {
+=======
+.btn {
+>>>>>>> ceb7fb2697dcd2f9b62a6913aeb9f39c47b8b6aa
 			padding: .3em .8em;
 			border: .05em solid rgba(0, 0, 0, .1);
 			background: #58a;
@@ -27,7 +31,10 @@
 			font-size: 20px;
 			background: #8795aa;
 			color: black;
+<<<<<<< HEAD
 			position: relative;
+=======
+>>>>>>> ceb7fb2697dcd2f9b62a6913aeb9f39c47b8b6aa
 		}
 		.content-main-nav{
 			background: #30486d;
@@ -318,6 +325,7 @@
 		.form-input-decoration>input{
 			padding-left:52px;
 			width: 298px;
+<<<<<<< HEAD
 		}
 		.content-main-image-change{
 			transform: scale(0);
@@ -502,3 +510,6 @@
 		.save{
 			font-size: 20px;
 		}
+=======
+		}
+>>>>>>> ceb7fb2697dcd2f9b62a6913aeb9f39c47b8b6aa
